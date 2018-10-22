@@ -14,7 +14,7 @@ body {
     width: 100%;
     height: 600px;
     overflow: visible;
-    background-image : url(contour-line.png);
+    background-image : url(/img/contour-line.png);
     background-repeat : no-repeat;
     background-position: left top;
     background-size: 100% auto;
