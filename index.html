@@ -16,12 +16,12 @@
         <div id="scrolldown">scroll ➡</div>
     </div>
     <div id="front">
-        <img src="img/we.png" class="we">
-        <img src="img/pumpkin.png" class="pumpkin">
-        <img src="img/anping-fort.png" class="anping-fort">
-        <img src="img/sambar-deer.png" class="sambar-deer">
-        <img src="img/vikingar.png" class="vikingar">
-        <img src="img/shisa.png" class="shisa">
+        <img src="img/we.png" data-offestx="0" data-offesty="0" class="we">
+        <img src="img/pumpkin.png" data-offestx="4" data-offesty="-4" class="pumpkin">
+        <img src="img/anping-fort.png" data-offestx="-4" data-offesty="-4" class="anping-fort">
+        <img src="img/sambar-deer.png" data-offestx="-4" data-offesty="4" class="sambar-deer">
+        <img src="img/vikingar.png" data-offestx="4" data-offesty="4" class="vikingar">
+        <img src="img/shisa.png" data-offestx="4" data-offesty="2" class="shisa">
     </div>
     <p id="content">
         翻山越嶺
@@ -124,13 +124,21 @@ $( window ).scroll(function(e) {
     var bgSizeString = (1+bgSizeScale)*100 + "% auto";
 
     var frontOpacity = linear(scrollVal, [500, 1400], [0.5, 0]);
-    var filter = linear(scrollVal, [0, 500], [7, 1]);
+    var filter = linear(scrollVal, [0, 500], [8, 2]);
 
     $( "#front" )
     .css( "background-size", bgSizeString )
     .css( "opacity", frontOpacity  )
     .css( "filter", "blur("+ filter +"px)"  );
-    
+
+    $( "#front img" ).each(function(){
+        var offestY = $(this).data("offesty");
+        var offestX = $(this).data("offestx");
+        var left = bgSizeScale * 100 * offestX;
+        var top = bgSizeScale * 100 * offestY;
+        var transform = "translate("+left+"px, "+top+"px)";
+        $(this).css("transform", transform);
+    });
 });
 
 </script>
