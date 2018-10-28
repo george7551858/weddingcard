@@ -13,7 +13,7 @@
 <body>
     <div id="cover">
         <img src="img/card.png" class="card">
-        <div id="scrolldown">scroll ➡</div>
+        <div id="scrolldown">scroll &#x25BB;</div>
     </div>
     <div id="front">
         <img src="img/we.png" data-offestx="0" data-offesty="0" class="we">
@@ -120,10 +120,10 @@ $( window ).scroll(function(e) {
     var coverScale = linear(scrollVal, [0, 450], [0.9, 0] );
     $( "#cover" ).css( "opacity", coverScale );
 
-    var bgSizeScale = linear(scrollVal, [450, 1400]);
+    var bgSizeScale = linear(scrollVal, [450, 1600]);
     var bgSizeString = (1+bgSizeScale)*100 + "% auto";
 
-    var frontOpacity = linear(scrollVal, [500, 1400], [0.5, 0]);
+    var frontOpacity = linear(scrollVal, [500, 1600], [0.5, 0]);
     var filter = linear(scrollVal, [0, 500], [8, 2]);
 
     $( "#front" )
